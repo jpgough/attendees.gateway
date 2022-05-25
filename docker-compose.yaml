@@ -1,0 +1,13 @@
+version: '3'
+services:
+  attendees:
+    image: jpgough/attendees
+    ports:
+      - "8080:8080"
+  api-gateway:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    image: "jpgough/attendees.gateway"
+    ports:
+      - "80:8081"

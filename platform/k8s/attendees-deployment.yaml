@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: attendees
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: attendees
+  template:
+    metadata:
+      labels:
+        app: attendees
+        version: v1
+    spec:
+      containers:
+        - name: attendees
+          image: jpgough/attendees:latest
+          ports:
+            - containerPort: 8080
+            - containerPort: 9090
